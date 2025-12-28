@@ -1,0 +1,17 @@
+﻿# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfstate.backup
+
+# Local Docker data (your computer only)
+/mysql_data/
+/wordpress_data/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
