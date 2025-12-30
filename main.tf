@@ -27,10 +27,10 @@ resource "docker_container" "mysql_db" {
   name = "mysql_db"
   image = docker_image.mysql.name
   env = [
-"MYSQL_ROOT_PASSWORD=securepassword123",
+"MYSQL_ROOT_PASSWORD=${var.mysql_root_password}",
     "MYSQL_DATABASE=wordpress",
     "MYSQL_USER=wordpress",
-    "MYSQL_PASSWORD=wordpresspassword",
+    "MYSQL_PASSWORD=${var.mysql_password}",
     "MYSQL_TCP_PORT=3306",
   ]
 
@@ -60,7 +60,7 @@ resource "docker_container" "wordpress_app" {
     "WORDPRESS_DB_HOST=mysql_db:3306",
     "WORDPRESS_DB_USER=wordpress",
 
-    "WORDPRESS_DB_PASSWORD=wordpresspassword",
+    "WORDPRESS_DB_PASSWORD=${var.mysql_password}",
     "WORDPRESS_DB_NAME=wordpress"
 ]
 
